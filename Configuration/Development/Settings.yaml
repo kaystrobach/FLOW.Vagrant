@@ -1,0 +1,41 @@
+#                                                                        #
+# Example Settings                                                       #
+#                                                                        #
+# This file contains settings for various parts of the application.      #
+# Copy this file to Settings.yaml, and adjust as necessary.              #
+#                                                                        #
+# Please refer to the default settings file(s) or the manuals for        #
+# possible configuration options.                                        #
+#                                                                        #
+
+########################################################################################################################
+TYPO3:
+  Flow:
+    persistence:
+      backendOptions:
+        driver: 'pdo_mysql'
+        dbname: 'flow'       # adjust to your database name
+        user:   'root'       # adjust to your database user
+        password: ''         # adjust to your database password
+        host: '127.0.0.1'
+      doctrine:
+        sqlLogger: TYPO3\Flow\Persistence\Doctrine\Logging\SqlLogger
+
+       # if you want to log executed SQL queries, enable the next 2 lines
+#      doctrine:
+#        sqlLogger: 'TYPO3\Flow\Persistence\Doctrine\Logging\SqlLogger'
+    configuration:
+      # Enables the configuration file cache which compiles YAML files into
+      # much faster to load PHP files.
+      #
+      # NOTE: You must clear all caches right after switching this option OFF
+      # compileConfigurationFiles: TRUE
+
+    utility:
+      environment:
+
+        # Defines the base directory which Flow may use for storing different kinds
+        # of temporary files.
+        # The directory must be writable and Flow will automatically create a sub
+        # directory (named after the context) which will contain the actual temporary files.
+        temporaryDirectoryBase: %FLOW_PATH_DATA%/tmp/
